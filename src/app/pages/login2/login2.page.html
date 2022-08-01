@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login2</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="1"></ion-col>
+      <ion-col size="10" size-sm="12">
+        <!-- <ion-card>
+          <ion-card-header>
+            <ion-card-title>Login2</ion-card-title>
+            <ion-card-subtitle>Ingrese sus datos</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list>
+              <ion-item>
+                <ion-label position="floating">Usuario:</ion-label>
+                <ion-input type="text" placeholder="Inserte usuario"[(ngModel)]="nombre"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Password:</ion-label>
+                <ion-input type="password" placeholder="Ingrese su contraseña"[(ngModel)]="password"></ion-input>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card> -->
+        <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+          <ion-list-header>
+            <ion-label>formulario valido: {{formulario.valid}}</ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-label position="floating">Email:</ion-label>
+            <ion-input type="email" placeholder="Ingrese su email" name="email" [(ngModel)]="usuario.email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Password:</ion-label>
+            <ion-input type="password" placeholder="Ingrese su contraseña" name="password" [(ngModel)]="usuario.password" required></ion-input>
+          </ion-item>
+          <ion-button [disabled]="formulario.invalid" type="submit" expand="block" shape="round">
+            Login2
+          </ion-button>
+        </form>
+      </ion-col>
+      <ion-col size="1"></ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
