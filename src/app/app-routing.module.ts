@@ -4,8 +4,12 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'inicio',
     pathMatch: 'full'
+  },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
     path: 'login2',
@@ -14,7 +18,13 @@ const routes: Routes = [
   {
     path: 'alert',
     loadChildren: () => import('./pages/alert/alert.module').then( m => m.AlertPageModule)
+  },  {
+    path: 'camara',
+    loadChildren: () => import('./pages/camara/camara.module').then( m => m.CamaraPageModule)
   },
+
+
+
 
 
 ];
