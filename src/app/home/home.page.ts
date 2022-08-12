@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-
-interface Datos{
-  titulo:string;
-  img: string;
-}
+import { Pieza } from '../interface/Pieza.interface';
 
 @Component({
   selector: 'app-home',
@@ -12,31 +8,31 @@ interface Datos{
 })
 export class HomePage {
 
-  datos:Datos[]= [
+  datos:Pieza[]= [
     {
       titulo:"Convertidor catalitico universal OBD ll",
+      largo:'13',
+      cuerpo:'4',
       img:"../../assets/img/Forma 1.png",
+      boquillas:'2,2.25,2.5',
+      num_parte:{
+        parte1:'414220-EN',
+        parte2:'414420-EN',
+        parte3:'',
+      },
+      tipo:{
+        tipo1:'Redondo corto',
+        tipo2:'Redondo corto'
+      },
+      sensor:{
+        sensor1:'No aplica',
+        sensor2:'A la orilla',
+        sensor3:'',
+      },
+      apli_vehicular:'4 Cil. Hasta 4.8lt'
+     
     },
-    {
-      titulo:"Convertidor catalitico universal OBD ll",
-      img:"../../assets/img/Forma 2.png",
-    },
-    {
-      titulo:"Convertidor catalitico universal OBD ll",
-      img:"../../assets/img/Forma 3.png",
-    },
-    {
-      titulo:"Cartucho OBD ll",
-      img:"../../assets/img/Forma 4.png",
-    },
-    {
-      titulo:"Cartucho OBD ll",
-      img:"../../assets/img/Forma 5.png",
-    },
-    {
-      titulo:"Cartucho OBD ll",
-      img:"../../assets/img/Forma 6.png",
-    },
+    
   ];
 
   constructor() {}
