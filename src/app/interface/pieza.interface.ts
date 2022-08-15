@@ -4,6 +4,7 @@ export interface Pieza{
     cuerpo:string;
     img: string;
     boquillas: string;
+    // complemento:string;
     num_parte:{
       parte1:string;
       parte2?:string;

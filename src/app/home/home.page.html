@@ -1,90 +1,110 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="success">
-    <ion-title color="dark">
-      <!-- ENGELTECH -->
-      <ion-item color="success">
-        <ion-img src="../../assets/img/logo.png"></ion-img>
-      </ion-item>
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-menu></app-menu>
+<app-header></app-header>
 
 <ion-content [fullscreen]="true">
-
   <ion-grid>
     <!-- Busqueda -->
     <ion-row>
       <ion-col size="12">
         <ion-item>
-          <ion-label position="floating">Buscar</ion-label>
-          <ion-input expand="block" fill="clear" shape="round"></ion-input>
+          <ion-searchbar placeholder="Buscar"></ion-searchbar>
         </ion-item>
       </ion-col>
     </ion-row>
     <!-- Card -->
     <ion-row>
-      <!-- <ion-col size="12" size-sm="12" size-md="6" size-lg="4" *ngFor="let dato of datos"> -->
-        <ion-card class="ion-text-center" *ngFor="let dato of datos">
-          <ion-card-title color="success">{{dato.titulo}}</ion-card-title>
-          <img [src]="dato.img" alt="">
+      <ion-col size="12" size-sm="12" size-md="6" size-lg="4" *ngFor="let dato of datos">
+        <ion-card class="ion-text-center">
+          <ion-card-title color="success ion-padding-top">{{dato.titulo}}</ion-card-title>
+          <img [src]="dato.img" class="ion-padding-top" alt="{{dato.titulo}}">
           <ion-card-content>
             <ion-grid fixed>
-              <ion-row>
-                <ion-col size="6">Largo</ion-col>
+              <ion-row class="ion-padding-top">
+                <ion-col size="4">
+                  <ion-text color="success">
+                    <h4>Largo</h4>
+                  </ion-text>
+                  <ion-text color="success">
+                    <h4 color="success">Cuerpo</h4>
+                  </ion-text>
+                  <ion-text color="success">
+                    <h4 color="success">Boquillas</h4>
+                  </ion-text>
+                </ion-col>
+
+                <ion-col size="4">
+                  <h4>{{dato.largo}}</h4>
+                  <h4>{{dato.cuerpo}}</h4>
+                  <h4>{{dato.boquillas}}</h4>
+                </ion-col>
+                <ion-col size="4">
+                  <img src="../../assets/img/Complemento 1.png" alt="">
+                </ion-col>
+              </ion-row>
+              <!-- <ion-row>
+                <ion-col size="6">
+                  <ion-text color="success">
+                    <h4>Largo</h4>
+                  </ion-text>
+                </ion-col>
                 <ion-col size="6">{{dato.largo}}</ion-col>
               </ion-row>
               <ion-row>
-                <ion-col size="6">Cuerpo</ion-col>
+                <ion-col size="6">
+                  <ion-text color="success">
+                    <h4>Cuerpo</h4>
+                  </ion-text>
+                </ion-col>
                 <ion-col size="6">{{dato.cuerpo}}</ion-col>
               </ion-row>
               <ion-row>
-                <ion-col size="6">Boquillas</ion-col>
+                <ion-col size="6">
+                  <ion-text color="success">
+                    <h4>Boquillas</h4>
+                  </ion-text>
+                </ion-col>
                 <ion-col size="6">{{dato.boquillas}}</ion-col>
+              </ion-row> -->
+              <!-- Titulos -->
+              <ion-row>
+                <ion-col size="4"><strong>No. parte</strong> </ion-col>
+                <ion-col size="4"><strong>Tipo</strong></ion-col>
+                <ion-col size="4"><strong>Sensor</strong></ion-col>
+              </ion-row>
+              <!-- Datos -->
+              <ion-row>
+                <ion-col size="4">{{dato.num_parte.parte1}}</ion-col>
+                <ion-col size="4">{{dato.tipo.tipo1}}</ion-col>
+                <ion-col size="4">{{dato.sensor.sensor1}}</ion-col>
               </ion-row>
               <ion-row>
-                <ion-col size="4" size-md="4" size-lg="3">
-                  <p>No. de parte</p>
-                  <strong>{{dato.num_parte.parte1}}</strong>
-                  <div *ngIf="dato.num_parte.parte2 != '' || dato.num_parte.parte2 != null">
-                    <strong>{{dato.num_parte.parte2}}</strong>
-                  </div>
-                  <div *ngIf="dato.num_parte.parte3 != '' || dato.num_parte.parte3 != null">
-                    <strong>{{dato.num_parte.parte3}}</strong>
-                  </div>
-                </ion-col>
-                <ion-col size="4" size-md="5" class="ion-text-center">
-                  <p>Tipo</p>
-                  <strong>{{dato.tipo.tipo1}}</strong>
-                  <div *ngIf="dato.tipo.tipo2 != '' || dato.tipo.tipo2 != null">
-                    <strong>{{dato.tipo.tipo2}}</strong>
-                  </div>
-                  <div *ngIf="dato.tipo.tipo3 != '' || dato.tipo.tipo3 != null">
-                    <strong>{{dato.tipo.tipo3}}</strong>
-                  </div>
-                </ion-col>
-                <ion-col size="4" size-md="3" size-lg="3" class="ion-text-center">
-                  <p>Sensor</p>
-                  <strong>{{dato.sensor.sensor1}}</strong>
-                  <div *ngIf="dato.sensor.sensor2 != '' || dato.sensor.sensor2 != null">
-                    <strong>{{dato.sensor.sensor2}}</strong>
-                  </div>
-                  <div *ngIf="dato.sensor.sensor3 != '' || dato.sensor.sensor3 != null">
-                    <strong>{{dato.sensor.sensor3}}</strong>
-                  </div>
-                </ion-col>
+                <ion-col size="4" *ngIf="dato.num_parte.parte2 != '' || dato.num_parte.parte2 != null">{{dato.num_parte.parte2}}</ion-col>
+                <ion-col size="4" *ngIf="dato.tipo.tipo2 != '' || dato.tipo.tipo2 != null">{{dato.tipo.tipo2}}</ion-col>
+                <ion-col size="4" *ngIf="dato.sensor.sensor2 != '' || dato.sensor.sensor2 != null">{{dato.sensor.sensor2}}</ion-col>
               </ion-row>
+              <ion-row>
+                <ion-col size="4" *ngIf="dato.num_parte.parte3 != '' || dato.num_parte.parte3 != null">{{dato.num_parte.parte3}}</ion-col>
+                <ion-col size="4" *ngIf="dato.tipo.tipo3 != '' || dato.tipo.tipo3 != null">{{dato.tipo.tipo3}}</ion-col>
+                <ion-col size="4" *ngIf="dato.sensor.sensor3 != '' || dato.sensor.sensor3 != null">{{dato.sensor.sensor3}}</ion-col>
+              </ion-row>
+
               <ion-row>
                 <ion-col size="12" class="ion-text-center">
-                  <h5>Aplicación vehicular</h5>
-                  <strong>{{dato.apli_vehicular}}</strong>
+                  <strong>Aplicación vehicular</strong>
+                  <h5>{{dato.apli_vehicular}}</h5>
                 </ion-col>
               </ion-row>
+              
             </ion-grid>
           </ion-card-content>
         </ion-card>
-      <!-- </ion-col> -->
+      </ion-col>
     </ion-row>
   </ion-grid>
+
+  <!-- <ion-button [routerLink]="['/opciones']" expand="block" fill="clear" shape="round">
+    Opciones
+  </ion-button> -->
 
   <!-- <div id="container">
     <strong>Ready to create an app?</strong>
